@@ -20,9 +20,9 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
 <p><img data-src="https://raw.gitmirror.com/trek-cai/pic-storage/main/how-to-build-a-blog/20240113145308.png"></p>
 <h4 id="cnpm"><a href="#cnpm" class="headerlink" title="cnpm"></a>cnpm</h4><p>npm在国内下载速度太慢，可以把它换成淘宝的镜像。在上述命令窗口中执行以下指令：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
 <p>验证是否安装成功: </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cnpm -v</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cnpm -v</span><br></pre></td></tr></table></figure>
 <p><img data-src="https://raw.gitmirror.com/trek-cai/pic-storage/main/how-to-build-a-blog/20240113145551.png"></p>
 <h4 id="hexo-cli"><a href="#hexo-cli" class="headerlink" title="hexo-cli"></a>hexo-cli</h4><p>新建文件夹（如<code>blog</code>）用于存放Hexo产生的各类文件，在<code>blog</code>文件夹中右键选择<code>Git Bash Here</code>，执行以下命令安装hexo-cli：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-cli -g</span><br></pre></td></tr></table></figure>
