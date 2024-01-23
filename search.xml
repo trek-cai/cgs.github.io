@@ -15,32 +15,32 @@
 </blockquote>
 <span id="more"></span>
 <p>以下安装过程建立在win11系统的基础上：</p>
-<h4 id="Git"><a href="#Git" class="headerlink" title="Git"></a><a href="https://git-scm.com/download/win">Git</a></h4><p><img data-src="https://cdn.jsdelivr.net/gh/trek-cai/pic-storage/how-to-build-a-blog/20240113142107.png"><br>打开安装文件，一路默认设置即可：<br><img data-src="https://cdn.jsdelivr.net/gh/trek-cai/pic-storage/how-to-build-a-blog/20240113142407.png"><br>安装完成之后，桌面右键打开出现<code>Git Bash Here</code>即表示安装成功。<br><img data-src="https://cdn.jsdelivr.net/gh/trek-cai/pic-storage/how-to-build-a-blog/20240113144641.png"></p>
-<h4 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a><a href="http://nodejs.cn/download/">Node.js</a></h4><p>下载相应的软件安装包：<br><img data-src="https://cdn.jsdelivr.net/gh/trek-cai/pic-storage@main/how-to-build-a-blog/20240113140034.png" alt="alt Node.js下载页面"><br>打开安装包，确保包含以下安装选项，其他默认安装即可：<br><img data-src="https://cdn.jsdelivr.net/gh/trek-cai/pic-storage/how-to-build-a-blog/20240113143935.png"><br>验证是否安装成功:<br>桌面右键选中<code>Git Bash Here</code>，执行以下命令，出现相应版本号即安装成功。  </p>
+<h4 id="Git"><a href="#Git" class="headerlink" title="Git"></a><a href="https://git-scm.com/download/win">Git</a></h4><p><img data-src="https://raw.gitmirror.com/trek-cai/pic-storage/main/how-to-build-a-blog/20240113142107.png"><br>打开安装文件，一路默认设置即可：<br><img data-src="https://raw.gitmirror.com/trek-cai/pic-storage/main/how-to-build-a-blog/20240113142407.png"><br>安装完成之后，桌面右键打开出现<code>Git Bash Here</code>即表示安装成功。<br><img data-src="https://raw.gitmirror.com/trek-cai/pic-storage/main/how-to-build-a-blog/20240113144641.png"></p>
+<h4 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a><a href="http://nodejs.cn/download/">Node.js</a></h4><p>下载相应的软件安装包：<br><img data-src="https://raw.gitmirror.com/trek-cai/pic-storage/main/how-to-build-a-blog/20240113140034.png" alt="alt Node.js下载页面"><br>打开安装包，确保包含以下安装选项，其他默认安装即可：<br><img data-src="https://raw.gitmirror.com/trek-cai/pic-storage/main/how-to-build-a-blog/20240113143935.png"><br>验证是否安装成功:<br>桌面右键选中<code>Git Bash Here</code>，执行以下命令，出现相应版本号即安装成功。  </p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://cdn.jsdelivr.net/gh/trek-cai/pic-storage/how-to-build-a-blog/20240113145308.png"></p>
+<p><img data-src="https://raw.gitmirror.com/trek-cai/pic-storage/main/how-to-build-a-blog/20240113145308.png"></p>
 <h4 id="cnpm"><a href="#cnpm" class="headerlink" title="cnpm"></a>cnpm</h4><p>npm在国内下载速度太慢，可以把它换成淘宝的镜像。在上述命令窗口中执行以下指令：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
 <p>验证是否安装成功: </p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cnpm -v</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://cdn.jsdelivr.net/gh/trek-cai/pic-storage/how-to-build-a-blog/20240113145551.png"></p>
+<p><img data-src="https://raw.gitmirror.com/trek-cai/pic-storage/main/how-to-build-a-blog/20240113145551.png"></p>
 <h4 id="hexo-cli"><a href="#hexo-cli" class="headerlink" title="hexo-cli"></a>hexo-cli</h4><p>新建文件夹（如<code>blog</code>）用于存放Hexo产生的各类文件，在<code>blog</code>文件夹中右键选择<code>Git Bash Here</code>，执行以下命令安装hexo-cli：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-cli -g</span><br></pre></td></tr></table></figure>
 <hr>
 <h3 id="初始化并运行Hexo"><a href="#初始化并运行Hexo" class="headerlink" title="初始化并运行Hexo"></a>初始化并运行Hexo</h3><h4 id="初始化Hexo"><a href="#初始化Hexo" class="headerlink" title="初始化Hexo"></a>初始化Hexo</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://cdn.jsdelivr.net/gh/trek-cai/pic-storage/how-to-build-a-blog/20240113150632.png">  </p>
+<p><img data-src="https://raw.gitmirror.com/trek-cai/pic-storage/main/how-to-build-a-blog/20240113150632.png">  </p>
 <h4 id="运行Hexo"><a href="#运行Hexo" class="headerlink" title="运行Hexo"></a>运行Hexo</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://cdn.jsdelivr.net/gh/trek-cai/pic-storage/how-to-build-a-blog/20240113150722.png">  </p>
-<p>至此，已经在本地成功建立博客网站，可在浏览器中打开<a href="http://localhost:4000/">http://localhost:4000</a>进行预览（因为该文章是在搭建好后编写的，因此与初始页面有区别）：<br><img data-src="https://cdn.jsdelivr.net/gh/trek-cai/pic-storage/how-to-build-a-blog/20240113151134.png">  </p>
+<p><img data-src="https://raw.gitmirror.com/trek-cai/pic-storage/main/how-to-build-a-blog/20240113150722.png">  </p>
+<p>至此，已经在本地成功建立博客网站，可在浏览器中打开<a href="http://localhost:4000/">http://localhost:4000</a>进行预览（因为该文章是在搭建好后编写的，因此与初始页面有区别）：<br><img data-src="https://raw.gitmirror.com/trek-cai/pic-storage/main/how-to-build-a-blog/20240113151134.png">  </p>
 <hr>
 <h3 id="利用Github-Pages部署博客"><a href="#利用Github-Pages部署博客" class="headerlink" title="利用Github Pages部署博客"></a>利用Github Pages部署博客</h3><p>以上博客只能在本地访问，如果想要实现网上访问，那么还需要在一些提供静态代码托管的网站上进行部署，以下介绍如何利用Github Pages进行博客的部署。</p>
-<h4 id="创建和设置username-github-io仓库"><a href="#创建和设置username-github-io仓库" class="headerlink" title="创建和设置username.github.io仓库"></a>创建和设置username.github.io仓库</h4><p>项目名称必须为username.github.io，其中username是Github账号的用户名。<br><img data-src="https://cdn.jsdelivr.net/gh/trek-cai/pic-storage/how-to-build-a-blog/20240113223127.png"><br>打开仓库，进行如下设置，会生成相应的Github Page访问地址。<br><img data-src="https://cdn.jsdelivr.net/gh/trek-cai/pic-storage/how-to-build-a-blog/20240113232227.png"></p>
+<h4 id="创建和设置username-github-io仓库"><a href="#创建和设置username-github-io仓库" class="headerlink" title="创建和设置username.github.io仓库"></a>创建和设置username.github.io仓库</h4><p>项目名称必须为username.github.io，其中username是Github账号的用户名。<br><img data-src="https://raw.gitmirror.com/trek-cai/pic-storage/main/how-to-build-a-blog/20240113223127.png"><br>打开仓库，进行如下设置，会生成相应的Github Page访问地址。<br><img data-src="https://raw.gitmirror.com/trek-cai/pic-storage/main/how-to-build-a-blog/20240113232227.png"></p>
 <h4 id="生成SSH-Key"><a href="#生成SSH-Key" class="headerlink" title="生成SSH Key"></a>生成SSH Key</h4><p>任意位置右键选择<code>Git Bash Here</code>，执行以下命令：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;youremail&quot;</span><br></pre></td></tr></table></figure>
 <p>以上的<code>youremail</code>代表你自己的邮箱。输出生成的SSH key，复制备用（从ssh-rsa开始）：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
 <h4 id="配置SSH-Key和Git相关信息"><a href="#配置SSH-Key和Git相关信息" class="headerlink" title="配置SSH Key和Git相关信息"></a>配置SSH Key和Git相关信息</h4><p>点击Github个人账户里的<code>setting</code>，选择<code>SSH and GPG keys</code>，点击<code>New SSH Key</code>，将刚才复制的SSH key粘贴进去，保存即可。</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/trek-cai/pic-storage/how-to-build-a-blog/20240113223548.png"><br>在<code>blog</code>文件夹中右键选择<code>Git Bash Here</code>，执行以下命令：</p>
+<p><img data-src="https://raw.gitmirror.com/trek-cai/pic-storage/main/how-to-build-a-blog/20240113223548.png"><br>在<code>blog</code>文件夹中右键选择<code>Git Bash Here</code>，执行以下命令：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
 <p>根据提示回复<code>yes</code>即可。然后再执行以下命令：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;yourname&quot;</span><br><span class="line">git config --global user.email &quot;youremail&quot;</span><br></pre></td></tr></table></figure>
