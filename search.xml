@@ -1,6 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>基于PicGo+Github RAW和Typora简化Markdown写作流程</title>
+    <url>/2024/01/27/blog-image-upload/</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>Markdown格式的文章呈现出来的风格固然简洁且优雅，但在还没完全熟悉Markdown语法以及解决上传图片和复制链接的繁琐之前，文章思路总会在编写过程的被上述问题而打断。因此，一款好用的Markdown编辑工具，以及方便集成和扩展的图片上传工具对于简化文章写作流程就显得尤为重要。尤其是这两款工具如果能实现无缝衔接，那么会更加方便作者将心思更多地放在文章的内容上。下面我将介绍一种解决方案，使用基于PicGo+Github RAW的图片上传工具和Typora编辑器来提升图片加载速度和简化写作流程。  </p>
+<ul>
+<li><p><a href="https://molunerfinn.com/PicGo/">PicGo</a>  </p>
+<blockquote>
+<p>PicGo是一款方便简洁的图片上传工具，支持本地查看和管理上传记录，支持Github、SM.MS、七牛云、腾讯云COS和阿里云OSS等多种图床设置，支持自定义插件安装，如上传时自动进行图片压缩等。详见<a href="https://picgo.github.io/PicGo-Doc/zh/guide/">PicGo is Here | PicGo</a>。</p>
+</blockquote>
+</li>
+<li><p><a href="https://gitmirror.com/raw.html">Github RAW</a>  </p>
+<blockquote>
+<p>方便在中国大陆地区流畅地访问 Github RAW 资源的一项服务，只需要简单地替换一下网址，就可以在任何地方、任何时候轻松访问 Github 的各种 RAW 资源，包括代码片段、文件和其他相关内容。</p>
+</blockquote>
+</li>
+<li><p><a href="https://www.typora.net/">Typora</a>  </p>
+<blockquote>
+<p>Typora是一款极简风格的轻量级Markdown编辑器，不仅具备方便快捷的编辑功能，还支持动态预览，所写即所见，以及丰富的文件导出类型。最重要的是支持PicGo，在使用Markdown格式编写文章时，能够实现方便快捷的【粘贴图片-&gt;图片自动上传】的操作。</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h3 id="PicGo-Github-RAW轻松搞定图片上传"><a href="#PicGo-Github-RAW轻松搞定图片上传" class="headerlink" title="PicGo+Github RAW轻松搞定图片上传"></a>PicGo+Github RAW轻松搞定图片上传</h3><h4 id="搭建Github图床"><a href="#搭建Github图床" class="headerlink" title="搭建Github图床"></a>搭建Github图床</h4><ul>
+<li><h5 id="创建Github-Repository"><a href="#创建Github-Repository" class="headerlink" title="创建Github Repository"></a>创建Github Repository</h5></li>
+</ul>
+<p><img data-src="https://raw.gitmirror.com/trek-cai/pic-storage/main/blog_image_upload/image-20240127161107651.png" alt="image-20240127161107651"></p>
+<p>创建一个专门用于存放博客图片的仓库。我的习惯是每篇文章单独创建一个文件夹，这样方便后期图片的管理。</p>
+<ul>
+<li><h5 id="生成Access-ToKen"><a href="#生成Access-ToKen" class="headerlink" title="生成Access ToKen"></a>生成Access ToKen</h5></li>
+</ul>
+<p><code>Github头像</code> -&gt; <code>Settings</code> -&gt; <code>Developer settings</code> -&gt; <code>Personal access tokens</code> -&gt; <code>Tokens (classic)</code>：</p>
+<p><img data-src="https://raw.gitmirror.com/trek-cai/pic-storage/main/blog_image_upload/image-20240127161920562.png" alt="image-20240127161920562"></p>
+<p><img data-src="https://raw.gitmirror.com/trek-cai/pic-storage/main/blog_image_upload/image-20240127162255046.png" alt="image-20240127162255046"></p>
+<p><code>Expiration</code>代表这个token的过期时间，自己根据实际情况设置。访问权限范围选择<code>repo</code>即可。创建成功后会获得一串代码，记得把代码复制到其他地方保存一下，不然刷新网页就看不到了。</p>
+<h4 id="配置PicGo"><a href="#配置PicGo" class="headerlink" title="配置PicGo"></a>配置PicGo</h4><p>下面只简单介绍Github图床和插件的设置，其他详细配置步骤见<a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E9%A2%84%E8%A7%88">配置手册 | PicGo</a>。</p>
+<ul>
+<li><h5 id="Github图床设置"><a href="#Github图床设置" class="headerlink" title="Github图床设置"></a>Github图床设置</h5></li>
+</ul>
+<p><img data-src="https://raw.gitmirror.com/trek-cai/pic-storage/main/blog_image_upload/image-20240127165658022.png" alt="image-20240127165658022"></p>
+<p><code>仓库名</code>：Github用户名&#x2F;仓库</p>
+<p><code>分支名</code>：根据你仓库分支来，一般创建完默认为<strong>main</strong>或者<strong>master</strong>。</p>
+<p><code>Token</code>：就是上一步骤中生成的<strong>person access token</strong>。</p>
+<p><code>存储路径</code>：仓库中具体存放图片的路径，存放在根路径的话可以为空。如果你像我每篇文章一个存放路径的话，那记得每次写之前把相应的存储路径也修改一下。</p>
+<p><code>自定义域名</code>：这个设置主要为你在PicGo上传完图片后，用于生成图片链接使用。由于我们使用的Github作为图床，因此为空的话，会生成类似<code>https://raw.githubusercontent.com/用户名/仓库/分支/存储路径/图片名称.png</code>的链接地址。此处设置可方便使用cdn来加速图片加载。</p>
+<ul>
+<li><h5 id="PicGo的使用"><a href="#PicGo的使用" class="headerlink" title="PicGo的使用"></a>PicGo的使用</h5></li>
+</ul>
+<p><img data-src="https://raw.gitmirror.com/trek-cai/pic-storage/main/blog_image_upload/image-20240127170427425.png" alt="image-20240127170427425"></p>
+<p>配置完成之后，现在只需要将图片拖拽到PicGo里，或者直接点击剪贴板图片，PicGo上传成功之后会自动生成相应格式的图片链接，并复制到剪贴板，你只需要<code>ctrl + v</code>粘贴到你文章里即可。</p>
+<ul>
+<li><h5 id="插件设置-图片压缩"><a href="#插件设置-图片压缩" class="headerlink" title="插件设置-图片压缩"></a>插件设置-图片压缩</h5></li>
+</ul>
+<p>在没有经过任何处理的情况下，图片都是原图上传的，实际浏览过程中会发现图片加载很慢，尤其是在国内访问Github的情况下。我们有时候并不需要很高清的图片，并且更希望图片能快速加载出来。因此可以在图片上传之前进行压缩处理。PicGo集成了很多插件，可以直接在<code>插件设置</code>里搜索，也可以访问<a href="https://github.com/PicGo/Awesome-PicGo">Awesome-PicGo: A collection of awesome projects using PicGo.</a>查找插件。我选择的是下图中的压缩插件，它可以在图片上传前自动对图片完成压缩。压缩后的图像质量也还可以，关键是文件很小，一般都只有几十k，能满足快速加载的需求。</p>
+<p><img data-src="https://raw.gitmirror.com/trek-cai/pic-storage/main/blog_image_upload/image-20240127171406183.png" alt="image-20240127171406183"></p>
+<h4 id="Github-RAW加速图片加载"><a href="#Github-RAW加速图片加载" class="headerlink" title="Github RAW加速图片加载"></a>Github RAW加速图片加载</h4><p>Github在国内的访问还是很不稳定，为了进一步加速网页资源的加载速度，使用Github自带的加速服务，只需要将图片链接中的<code>raw.githubusercontent.com</code>简单替换成<code>raw.gitmirror.com</code>即可。这个步骤可以在PicGo的Github图床配置中自动实现，参考下图，将其中的<code>自定义域名</code>修改为<code>https://raw.gitmirror.com/用户名/仓库/分支</code>。</p>
+<p><img data-src="https://raw.gitmirror.com/trek-cai/pic-storage/main/blog_image_upload/image-20240127173119878.png" alt="image-20240127173119878"></p>
+<hr>
+<h3 id="Typora集成PicGo"><a href="#Typora集成PicGo" class="headerlink" title="Typora集成PicGo"></a>Typora集成PicGo</h3><p>完成上述步骤已经可以很方便地完成截图 -&gt; 上传图片 -&gt; 粘贴图片链接的操作了，但每一次截完图之后还要再切出去点一下总归是有点不爽，所有有没有办法省去这一步？有的，答案就是使用Typora这个编辑器。<code>文件</code> -&gt; <code>偏好设置</code>：</p>
+<p><img data-src="https://raw.gitmirror.com/trek-cai/pic-storage/main/blog_image_upload/image-20240127173608171.png" alt="image-20240127173608171"></p>
+<p>通过<code>验证图片上传选项</code>测试是否配置成功。测试通过后，<code>截图 -&gt; 上传图片 -&gt; 粘贴图片链接</code>就变成<code>截图 -&gt; 粘贴图片链接</code>。</p>
+]]></content>
+      <categories>
+        <category>Web前端</category>
+      </categories>
+      <tags>
+        <tag>PicGo</tag>
+        <tag>Github RAW</tag>
+        <tag>Typora</tag>
+        <tag>个人博客</tag>
+        <tag>图床</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>利用Hexo和Github Pages快速搭建个人博客</title>
     <url>/2024/01/10/how-to-build-a-blog/</url>
     <content><![CDATA[<h3 id="基本安装"><a href="#基本安装" class="headerlink" title="基本安装"></a>基本安装</h3><p>在开始正式的搭建步骤之前，需要先安装以下组件：</p>
@@ -64,9 +136,9 @@
         <category>Web前端</category>
       </categories>
       <tags>
+        <tag>个人博客</tag>
         <tag>Hexo</tag>
         <tag>Next</tag>
-        <tag>个人博客</tag>
       </tags>
   </entry>
 </search>

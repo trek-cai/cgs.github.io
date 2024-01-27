@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.28/fancybox/fancybox.css" integrity="sha256-6cQIC71/iBIYXFK+0RHAvwmjwWzkWd+r7v/BX3/vZDc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="介绍一种解决方案，使用基于PicGo+Github RAW的图片上传工具和Typora编辑器来提升图片加载速度和简化写作流程。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于PicGo+Github RAW和Typora简化Markdown写作流程">
+<meta property="og:url" content="http://example.com/2024/01/27/blog-image-upload/index.html">
+<meta property="og:site_name" content="CAI">
+<meta property="og:description" content="介绍一种解决方案，使用基于PicGo+Github RAW的图片上传工具和Typora编辑器来提升图片加载速度和简化写作流程。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.gitmirror.com/trek-cai/pic-storage/main/blog_image_upload/image-20240127161107651.png">
+<meta property="og:image" content="https://raw.gitmirror.com/trek-cai/pic-storage/main/blog_image_upload/image-20240127161920562.png">
+<meta property="og:image" content="https://raw.gitmirror.com/trek-cai/pic-storage/main/blog_image_upload/image-20240127162255046.png">
+<meta property="og:image" content="https://raw.gitmirror.com/trek-cai/pic-storage/main/blog_image_upload/image-20240127165658022.png">
+<meta property="og:image" content="https://raw.gitmirror.com/trek-cai/pic-storage/main/blog_image_upload/image-20240127170427425.png">
+<meta property="og:image" content="https://raw.gitmirror.com/trek-cai/pic-storage/main/blog_image_upload/image-20240127171406183.png">
+<meta property="og:image" content="https://raw.gitmirror.com/trek-cai/pic-storage/main/blog_image_upload/image-20240127173119878.png">
+<meta property="og:image" content="https://raw.gitmirror.com/trek-cai/pic-storage/main/blog_image_upload/image-20240127173608171.png">
+<meta property="article:published_time" content="2024-01-27T13:48:18.000Z">
+<meta property="article:modified_time" content="2024-01-27T13:51:06.678Z">
+<meta property="article:author" content="GS CAI">
+<meta property="article:tag" content="PicGo">
+<meta property="article:tag" content="Github RAW">
+<meta property="article:tag" content="Typora">
+<meta property="article:tag" content="个人博客">
+<meta property="article:tag" content="图床">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.gitmirror.com/trek-cai/pic-storage/main/blog_image_upload/image-20240127161107651.png">
+
+
+<link rel="canonical" href="http://example.com/2024/01/27/blog-image-upload/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/01/27/blog-image-upload/","path":"2024/01/27/blog-image-upload/","title":"基于PicGo+Github RAW和Typora简化Markdown写作流程"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>基于PicGo+Github RAW和Typora简化Markdown写作流程 | CAI</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?5934c8b18fd33ffc4673e21ccbb98abf"></script>
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">CAI</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PicGo-Github-RAW%E8%BD%BB%E6%9D%BE%E6%90%9E%E5%AE%9A%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0"><span class="nav-number">2.</span> <span class="nav-text">PicGo+Github RAW轻松搞定图片上传</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%90%AD%E5%BB%BAGithub%E5%9B%BE%E5%BA%8A"><span class="nav-number">2.1.</span> <span class="nav-text">搭建Github图床</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAGithub-Repository"><span class="nav-number">2.1.1.</span> <span class="nav-text">创建Github Repository</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%94%9F%E6%88%90Access-ToKen"><span class="nav-number">2.1.2.</span> <span class="nav-text">生成Access ToKen</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEPicGo"><span class="nav-number">2.2.</span> <span class="nav-text">配置PicGo</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Github%E5%9B%BE%E5%BA%8A%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.2.1.</span> <span class="nav-text">Github图床设置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#PicGo%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">2.2.2.</span> <span class="nav-text">PicGo的使用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8F%92%E4%BB%B6%E8%AE%BE%E7%BD%AE-%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9"><span class="nav-number">2.2.3.</span> <span class="nav-text">插件设置-图片压缩</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Github-RAW%E5%8A%A0%E9%80%9F%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD"><span class="nav-number">2.3.</span> <span class="nav-text">Github RAW加速图片加载</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Typora%E9%9B%86%E6%88%90PicGo"><span class="nav-number">3.</span> <span class="nav-text">Typora集成PicGo</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">GS CAI</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/trek-cai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;trek-cai" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:gangsheng.cai@gmail.com" title="E-Mail → mailto:gangsheng.cai@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/01/27/blog-image-upload/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GS CAI">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CAI">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="基于PicGo+Github RAW和Typora简化Markdown写作流程 | CAI">
+      <meta itemprop="description" content="介绍一种解决方案，使用基于PicGo+Github RAW的图片上传工具和Typora编辑器来提升图片加载速度和简化写作流程。">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          基于PicGo+Github RAW和Typora简化Markdown写作流程
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-01-27 21:48:18 / 修改时间：21:51:06" itemprop="dateCreated datePublished" datetime="2024-01-27T21:48:18+08:00">2024-01-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">Web前端</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">介绍一种解决方案，使用基于PicGo+Github RAW的图片上传工具和Typora编辑器来提升图片加载速度和简化写作流程。</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>Markdown格式的文章呈现出来的风格固然简洁且优雅，但在还没完全熟悉Markdown语法以及解决上传图片和复制链接的繁琐之前，文章思路总会在编写过程的被上述问题而打断。因此，一款好用的Markdown编辑工具，以及方便集成和扩展的图片上传工具对于简化文章写作流程就显得尤为重要。尤其是这两款工具如果能实现无缝衔接，那么会更加方便作者将心思更多地放在文章的内容上。下面我将介绍一种解决方案，使用基于PicGo+Github RAW的图片上传工具和Typora编辑器来提升图片加载速度和简化写作流程。  </p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://molunerfinn.com/PicGo/">PicGo</a>  </p>
+<blockquote>
+<p>PicGo是一款方便简洁的图片上传工具，支持本地查看和管理上传记录，支持Github、SM.MS、七牛云、腾讯云COS和阿里云OSS等多种图床设置，支持自定义插件安装，如上传时自动进行图片压缩等。详见<a target="_blank" rel="noopener" href="https://picgo.github.io/PicGo-Doc/zh/guide/">PicGo is Here | PicGo</a>。</p>
+</blockquote>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://gitmirror.com/raw.html">Github RAW</a>  </p>
+<blockquote>
+<p>方便在中国大陆地区流畅地访问 Github RAW 资源的一项服务，只需要简单地替换一下网址，就可以在任何地方、任何时候轻松访问 Github 的各种 RAW 资源，包括代码片段、文件和其他相关内容。</p>
+</blockquote>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.typora.net/">Typora</a>  </p>
+<blockquote>
+<p>Typora是一款极简风格的轻量级Markdown编辑器，不仅具备方便快捷的编辑功能，还支持动态预览，所写即所见，以及丰富的文件导出类型。最重要的是支持PicGo，在使用Markdown格式编写文章时，能够实现方便快捷的【粘贴图片-&gt;图片自动上传】的操作。</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h3 id="PicGo-Github-RAW轻松搞定图片上传"><a href="#PicGo-Github-RAW轻松搞定图片上传" class="headerlink" title="PicGo+Github RAW轻松搞定图片上传"></a>PicGo+Github RAW轻松搞定图片上传</h3><h4 id="搭建Github图床"><a href="#搭建Github图床" class="headerlink" title="搭建Github图床"></a>搭建Github图床</h4><ul>
+<li><h5 id="创建Github-Repository"><a href="#创建Github-Repository" class="headerlink" title="创建Github Repository"></a>创建Github Repository</h5></li>
+</ul>
+<p><img data-src="https://raw.gitmirror.com/trek-cai/pic-storage/main/blog_image_upload/image-20240127161107651.png" alt="image-20240127161107651"></p>
+<p>创建一个专门用于存放博客图片的仓库。我的习惯是每篇文章单独创建一个文件夹，这样方便后期图片的管理。</p>
+<ul>
+<li><h5 id="生成Access-ToKen"><a href="#生成Access-ToKen" class="headerlink" title="生成Access ToKen"></a>生成Access ToKen</h5></li>
+</ul>
+<p><code>Github头像</code> -&gt; <code>Settings</code> -&gt; <code>Developer settings</code> -&gt; <code>Personal access tokens</code> -&gt; <code>Tokens (classic)</code>：</p>
+<p><img data-src="https://raw.gitmirror.com/trek-cai/pic-storage/main/blog_image_upload/image-20240127161920562.png" alt="image-20240127161920562"></p>
+<p><img data-src="https://raw.gitmirror.com/trek-cai/pic-storage/main/blog_image_upload/image-20240127162255046.png" alt="image-20240127162255046"></p>
+<p><code>Expiration</code>代表这个token的过期时间，自己根据实际情况设置。访问权限范围选择<code>repo</code>即可。创建成功后会获得一串代码，记得把代码复制到其他地方保存一下，不然刷新网页就看不到了。</p>
+<h4 id="配置PicGo"><a href="#配置PicGo" class="headerlink" title="配置PicGo"></a>配置PicGo</h4><p>下面只简单介绍Github图床和插件的设置，其他详细配置步骤见<a target="_blank" rel="noopener" href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E9%A2%84%E8%A7%88">配置手册 | PicGo</a>。</p>
+<ul>
+<li><h5 id="Github图床设置"><a href="#Github图床设置" class="headerlink" title="Github图床设置"></a>Github图床设置</h5></li>
+</ul>
+<p><img data-src="https://raw.gitmirror.com/trek-cai/pic-storage/main/blog_image_upload/image-20240127165658022.png" alt="image-20240127165658022"></p>
+<p><code>仓库名</code>：Github用户名&#x2F;仓库</p>
+<p><code>分支名</code>：根据你仓库分支来，一般创建完默认为<strong>main</strong>或者<strong>master</strong>。</p>
+<p><code>Token</code>：就是上一步骤中生成的<strong>person access token</strong>。</p>
+<p><code>存储路径</code>：仓库中具体存放图片的路径，存放在根路径的话可以为空。如果你像我每篇文章一个存放路径的话，那记得每次写之前把相应的存储路径也修改一下。</p>
+<p><code>自定义域名</code>：这个设置主要为你在PicGo上传完图片后，用于生成图片链接使用。由于我们使用的Github作为图床，因此为空的话，会生成类似<code>https://raw.githubusercontent.com/用户名/仓库/分支/存储路径/图片名称.png</code>的链接地址。此处设置可方便使用cdn来加速图片加载。</p>
+<ul>
+<li><h5 id="PicGo的使用"><a href="#PicGo的使用" class="headerlink" title="PicGo的使用"></a>PicGo的使用</h5></li>
+</ul>
+<p><img data-src="https://raw.gitmirror.com/trek-cai/pic-storage/main/blog_image_upload/image-20240127170427425.png" alt="image-20240127170427425"></p>
+<p>配置完成之后，现在只需要将图片拖拽到PicGo里，或者直接点击剪贴板图片，PicGo上传成功之后会自动生成相应格式的图片链接，并复制到剪贴板，你只需要<code>ctrl + v</code>粘贴到你文章里即可。</p>
+<ul>
+<li><h5 id="插件设置-图片压缩"><a href="#插件设置-图片压缩" class="headerlink" title="插件设置-图片压缩"></a>插件设置-图片压缩</h5></li>
+</ul>
+<p>在没有经过任何处理的情况下，图片都是原图上传的，实际浏览过程中会发现图片加载很慢，尤其是在国内访问Github的情况下。我们有时候并不需要很高清的图片，并且更希望图片能快速加载出来。因此可以在图片上传之前进行压缩处理。PicGo集成了很多插件，可以直接在<code>插件设置</code>里搜索，也可以访问<a target="_blank" rel="noopener" href="https://github.com/PicGo/Awesome-PicGo">Awesome-PicGo: A collection of awesome projects using PicGo.</a>查找插件。我选择的是下图中的压缩插件，它可以在图片上传前自动对图片完成压缩。压缩后的图像质量也还可以，关键是文件很小，一般都只有几十k，能满足快速加载的需求。</p>
+<p><img data-src="https://raw.gitmirror.com/trek-cai/pic-storage/main/blog_image_upload/image-20240127171406183.png" alt="image-20240127171406183"></p>
+<h4 id="Github-RAW加速图片加载"><a href="#Github-RAW加速图片加载" class="headerlink" title="Github RAW加速图片加载"></a>Github RAW加速图片加载</h4><p>Github在国内的访问还是很不稳定，为了进一步加速网页资源的加载速度，使用Github自带的加速服务，只需要将图片链接中的<code>raw.githubusercontent.com</code>简单替换成<code>raw.gitmirror.com</code>即可。这个步骤可以在PicGo的Github图床配置中自动实现，参考下图，将其中的<code>自定义域名</code>修改为<code>https://raw.gitmirror.com/用户名/仓库/分支</code>。</p>
+<p><img data-src="https://raw.gitmirror.com/trek-cai/pic-storage/main/blog_image_upload/image-20240127173119878.png" alt="image-20240127173119878"></p>
+<hr>
+<h3 id="Typora集成PicGo"><a href="#Typora集成PicGo" class="headerlink" title="Typora集成PicGo"></a>Typora集成PicGo</h3><p>完成上述步骤已经可以很方便地完成截图 -&gt; 上传图片 -&gt; 粘贴图片链接的操作了，但每一次截完图之后还要再切出去点一下总归是有点不爽，所有有没有办法省去这一步？有的，答案就是使用Typora这个编辑器。<code>文件</code> -&gt; <code>偏好设置</code>：</p>
+<p><img data-src="https://raw.gitmirror.com/trek-cai/pic-storage/main/blog_image_upload/image-20240127173608171.png" alt="image-20240127173608171"></p>
+<p>通过<code>验证图片上传选项</code>测试是否配置成功。测试通过后，<code>截图 -&gt; 上传图片 -&gt; 粘贴图片链接</code>就变成<code>截图 -&gt; 粘贴图片链接</code>。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/PicGo/" rel="tag"><i class="fa fa-tag"></i> PicGo</a>
+              <a href="/tags/Github-RAW/" rel="tag"><i class="fa fa-tag"></i> Github RAW</a>
+              <a href="/tags/Typora/" rel="tag"><i class="fa fa-tag"></i> Typora</a>
+              <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" rel="tag"><i class="fa fa-tag"></i> 个人博客</a>
+              <a href="/tags/%E5%9B%BE%E5%BA%8A/" rel="tag"><i class="fa fa-tag"></i> 图床</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/01/10/how-to-build-a-blog/" rel="next" title="利用Hexo和Github Pages快速搭建个人博客">
+                  利用Hexo和Github Pages快速搭建个人博客 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">GS CAI</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.28/fancybox/fancybox.umd.js" integrity="sha256-ytMJGN3toR+a84u7g7NuHm91VIR06Q41kMWDr2pq7Zo=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"trek-cai","repo":"blog-comments","client_id":"95166ee6f52ddc49b6de","client_secret":"6bedf565a3675468d6075a28a017fe5338c2e2b0","admin_user":"trek-cai","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"4247698ea7633b09cfda1043e48b4367"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>
